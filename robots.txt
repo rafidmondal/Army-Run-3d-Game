@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://army-game-online-play.01010101.workers.dev/sitemap.xml
+Sitemap: https://army-run-3d-game.raxzen.in/sitemap.xml
