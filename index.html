@@ -167,6 +167,72 @@
     line-height: 1;
     padding: 0 0 8px 0;
   }
+
+  /* --- PWA install popup: isolated, does not affect game layout/controls --- */
+  #armyrun-install-banner {
+    display: none;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 99997;
+    background: #111827;
+    color: #e5e7eb;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  #armyrun-install-banner.show { display: flex; align-items: center; gap: 10px; }
+  #armyrun-install-banner img {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    flex-shrink: 0;
+  }
+  #armyrun-install-banner .armyrun-install-text {
+    flex: 1;
+    min-width: 0;
+  }
+  #armyrun-install-banner .armyrun-install-text strong {
+    display: block;
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  #armyrun-install-banner .armyrun-install-text span {
+    display: block;
+    font-size: 11.5px;
+    color: #9ca3af;
+    line-height: 1.3;
+  }
+  #armyrun-install-banner .armyrun-install-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  #armyrun-install-banner button {
+    font-family: Arial, sans-serif;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12.5px;
+    padding: 7px 10px;
+  }
+  #armyrun-install-banner .armyrun-install-btn {
+    background: #22c55e;
+    color: #06210f;
+    font-weight: bold;
+  }
+  #armyrun-install-banner .armyrun-install-dismiss {
+    background: transparent;
+    color: #9ca3af;
+  }
 </style>
   <script type="module" crossorigin src="/index-NcedgnGK.js"></script>
   <link rel="stylesheet" crossorigin href="/index-DEEeE_2F.css">
@@ -312,6 +378,19 @@
   </div>
 </div>
 
+<!-- PWA Install popup (does not affect gameplay) -->
+<div id="armyrun-install-banner" role="dialog" aria-label="Install Army Run 3D">
+  <img src="/icon-192.png" alt="Army Run 3D icon">
+  <div class="armyrun-install-text">
+    <strong>Install Army Run 3D</strong>
+    <span>Add it to your home screen for fullscreen, app-like play.</span>
+  </div>
+  <div class="armyrun-install-actions">
+    <button class="armyrun-install-dismiss" type="button">Later</button>
+    <button class="armyrun-install-btn" type="button">Install</button>
+  </div>
+</div>
+
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -369,6 +448,61 @@
       canvas.addEventListener('pointerdown', hideOnFirstPlay, { passive: true });
       canvas.addEventListener('touchstart', hideOnFirstPlay, { passive: true });
     }
+  })();
+
+  /* --- PWA install popup --- */
+  (function () {
+    var banner = document.getElementById('armyrun-install-banner');
+    var installBtn = banner ? banner.querySelector('.armyrun-install-btn') : null;
+    var dismissBtn = banner ? banner.querySelector('.armyrun-install-dismiss') : null;
+    var deferredPrompt = null;
+
+    function isStandalone() {
+      return window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true;
+    }
+    function wasDismissedRecently() {
+      try {
+        var t = localStorage.getItem('armyrunInstallDismissedAt');
+        if (!t) return false;
+        return (Date.now() - parseInt(t, 10)) < 1000 * 60 * 60 * 24 * 3; // 3 days
+      } catch (e) { return false; }
+    }
+    function showBanner() {
+      if (!banner || isStandalone() || wasDismissedRecently()) return;
+      banner.classList.add('show');
+    }
+    function hideBanner() {
+      if (!banner) return;
+      banner.classList.remove('show');
+    }
+
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      showBanner();
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', function () {
+        hideBanner();
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function () {
+          deferredPrompt = null;
+        });
+      });
+    }
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', function () {
+        hideBanner();
+        try { localStorage.setItem('armyrunInstallDismissedAt', String(Date.now())); } catch (e) {}
+      });
+    }
+    window.addEventListener('appinstalled', function () {
+      hideBanner();
+      deferredPrompt = null;
+    });
   })();
 </script>
 
