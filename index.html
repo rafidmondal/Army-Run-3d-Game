@@ -2,9 +2,9 @@
 <meta name="google-site-verification" content="2kRMp9ubUT4GaT74ug0ZQz2W3SRDjsr_dI_kyUIAMFk" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<title>Army Rush ULTRA - Free Online Army Strategy Battle Game</title>
+<title>Army Run 3D - Army Rush ULTRA | Free Online 3D Army Strategy Battle Game</title>
 
-<meta name="description" content="Play Army Rush ULTRA for free online. Command your army, conquer enemy bases, unlock powerful upgrades, defeat challenging waves, and become the ultimate battlefield commander.">
+<meta name="description" content="Play Army Run 3D (Army Rush ULTRA) free in your browser, no download needed. Command your army, dodge obstacles, conquer enemy bases, unlock upgrades, and defeat wave after wave in this fast-paced 3D army strategy battle game.">
 
 <meta name="keywords" content="Army Rush ULTRA, army game, strategy game, battle game, war game, military game, online army game, free strategy game, browser game, action game, tactical battle, army commander, html5 game">
 
@@ -18,14 +18,22 @@
 
 <link rel="icon" href="logo.png" type="image/png">
 
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Army Rush">
+
 <meta property="og:type" content="website">
-<meta property="og:title" content="Army Rush ULTRA - Free Online Army Strategy Battle Game">
-<meta property="og:description" content="Lead your army, defeat enemies, unlock upgrades, and dominate the battlefield in Army Rush ULTRA.">
+<meta property="og:site_name" content="Army Run 3D">
+<meta property="og:title" content="Army Run 3D - Army Rush ULTRA | Free Online 3D Army Strategy Battle Game">
+<meta property="og:description" content="Play Army Run 3D free in your browser. Lead your army, dodge obstacles, defeat enemies, unlock upgrades, and dominate the battlefield in Army Rush ULTRA.">
 <meta property="og:image" content="https://army-run-3d-game.raxzen.in/logo.png">
+<meta property="og:url" content="https://army-run-3d-game.raxzen.in/">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Army Rush ULTRA">
-<meta name="twitter:description" content="Play Army Rush ULTRA online for free and conquer the battlefield.">
+<meta name="twitter:title" content="Army Run 3D - Army Rush ULTRA">
+<meta name="twitter:description" content="Play Army Run 3D online for free and conquer the battlefield.">
 <meta name="twitter:image" content="https://army-run-3d-game.raxzen.in/logo.png">
 
 <script type="application/ld+json">
@@ -33,10 +41,24 @@
   "@context":"https://schema.org",
   "@type":"VideoGame",
   "name":"Army Rush ULTRA",
+  "alternateName":["Army Run 3D","Army Run 3D Game"],
+  "url":"https://army-run-3d-game.raxzen.in/",
+  "image":"https://army-run-3d-game.raxzen.in/logo.png",
   "applicationCategory":"Game",
   "genre":"Strategy",
   "operatingSystem":"Web Browser",
-  "description":"Free online army strategy game with battles, upgrades and tactical gameplay."
+  "description":"Army Run 3D (Army Rush ULTRA) is a free online 3D army strategy battle game. Command your army, dodge obstacles, conquer enemy bases, unlock upgrades and defeat wave after wave, directly in your browser.",
+  "inLanguage":"en",
+  "isAccessibleForFree":true,
+  "author":{
+    "@type":"Person",
+    "name":"Rafid Mondal"
+  },
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
 }
 </script>
 
@@ -51,6 +73,99 @@
     z-index: 10000;
     cursor: pointer;
     background: transparent;
+  }
+
+  /* --- SEO "About" box: isolated, does not affect game layout/controls --- */
+  #armyrun-about-toggle {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 99998;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(17,24,39,0.55);
+    color: #e5e7eb;
+    border: 1px solid rgba(255,255,255,0.25);
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+  }
+  #armyrun-about-panel {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0,0,0,0.72);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  #armyrun-about-panel.open { display: flex; }
+  #armyrun-about-panel .armyrun-about-box {
+    background: #111827;
+    color: #e5e7eb;
+    max-width: 480px;
+    width: 100%;
+    max-height: 82vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 20px 22px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  #armyrun-about-panel h2 {
+    margin: 0 0 10px;
+    font-size: 19px;
+    color: #fff;
+  }
+  #armyrun-about-panel h3 {
+    margin: 18px 0 8px;
+    font-size: 15px;
+    color: #fff;
+  }
+  #armyrun-about-panel p {
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0 0 10px;
+    color: #d1d5db;
+  }
+  #armyrun-about-panel ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+    color: #d1d5db;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  #armyrun-about-panel li {
+    margin-bottom: 4px;
+  }
+  #armyrun-about-panel hr {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    margin: 16px 0;
+  }
+  #armyrun-about-panel a {
+    color: #60a5fa;
+    word-break: break-word;
+  }
+  #armyrun-about-panel strong {
+    color: #f3f4f6;
+  }
+  #armyrun-about-panel .armyrun-about-close {
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    color: #9ca3af;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 0 8px 0;
   }
 </style>
   <script type="module" crossorigin src="/index-NcedgnGK.js"></script>
@@ -74,6 +189,169 @@
   </script>
   <script src="https://www.highperformanceformat.com/6cb8260d56d41e6eb5d7ead890aee5b9/invoke.js"></script>
 </div>
+
+<!-- About This Game (SEO content, does not affect gameplay) -->
+<button id="armyrun-about-toggle" aria-label="About this game" aria-expanded="false" aria-controls="armyrun-about-panel">i</button>
+<div id="armyrun-about-panel" role="dialog" aria-labelledby="armyrun-about-heading">
+  <div class="armyrun-about-box">
+    <button class="armyrun-about-close" aria-label="Close">&times;</button>
+
+    <h2 id="armyrun-about-heading">🎮 About Army Run 3D</h2>
+    <p><strong>Army Run 3D</strong>, also known as <strong>Army Rush ULTRA</strong>, is a free browser-based 3D army strategy battle game created to deliver a fast, interactive, and entertaining gaming experience without requiring a traditional app installation.</p>
+    <p>The game puts you in control of your own army as you move forward, build your squad, collect power-ups, avoid obstacles, face enemy forces, and push your way through increasingly challenging battles.</p>
+    <p>The experience is designed to be simple to understand, quick to start, visually engaging, and enjoyable on both mobile and desktop devices.</p>
+
+    <h3>⚔️ Build Your Army. Push Forward. Survive.</h3>
+    <p>The main objective is to grow your army and make smart decisions while progressing through the battlefield.</p>
+    <p>During a run, you can:</p>
+    <ul>
+      <li>Build and expand your squad</li>
+      <li>Avoid obstacles and dangerous situations</li>
+      <li>Collect useful power-ups</li>
+      <li>Fight against enemy forces</li>
+      <li>Conquer enemy positions</li>
+      <li>Unlock and use upgrades</li>
+      <li>Progress through increasingly difficult challenges</li>
+      <li>Try to achieve a stronger run each time</li>
+    </ul>
+    <p>The controls are designed to remain straightforward and accessible, including touch-friendly interaction for mobile users.</p>
+
+    <h3>🌐 Play Directly in Your Browser</h3>
+    <p>One of the main advantages of Army Run 3D is its accessibility. You can play directly through a compatible web browser without needing a traditional app-store installation.</p>
+    <p>The game is designed for:</p>
+    <ul>
+      <li>📱 Mobile phones</li>
+      <li>📲 Tablets</li>
+      <li>💻 Laptops</li>
+      <li>🖥️ Desktop computers</li>
+    </ul>
+    <p>The responsive experience allows players to enjoy the game across different screen sizes and devices.</p>
+
+    <h3>✨ Clean &amp; Modern Gaming Experience</h3>
+    <p>Army Run 3D is built with a strong focus on creating a clean, modern, and enjoyable interface.</p>
+    <p>The overall experience focuses on:</p>
+    <ul>
+      <li>Modern visual design</li>
+      <li>3D gameplay</li>
+      <li>Smooth interactions</li>
+      <li>Clear controls</li>
+      <li>Responsive layouts</li>
+      <li>Touch-friendly gameplay</li>
+      <li>Simple navigation</li>
+      <li>Engaging animations</li>
+      <li>Accessible browser-based gameplay</li>
+    </ul>
+    <p>The aim is to keep the experience focused on the game itself without unnecessary complexity.</p>
+
+    <hr>
+
+    <h3>🚀 Development &amp; Continuous Improvement</h3>
+    <p>Army Run 3D is part of the Raxzen ecosystem and is developed with a long-term approach.</p>
+    <p>The project is not intended to be treated as a static, one-time website. Development can continue over time with improvements to the gameplay, interface, performance, compatibility, reliability, and overall user experience.</p>
+    <p>The development focus includes:</p>
+    <ul>
+      <li>✨ Modern UI/UX improvements</li>
+      <li>🎨 Visual and design refinement</li>
+      <li>⚡ Performance optimization</li>
+      <li>🎮 Gameplay improvements</li>
+      <li>📱 Mobile and desktop compatibility</li>
+      <li>🔧 Bug fixes and technical maintenance</li>
+      <li>🚀 New features and future improvements</li>
+      <li>🔒 Security and reliability</li>
+      <li>💎 Overall experience refinement</li>
+    </ul>
+    <p>As technology and user expectations evolve, the project can also evolve with them.</p>
+    <p>The goal is to keep Army Run 3D modern, accessible, enjoyable, and continuously improving.</p>
+
+    <hr>
+
+    <h3>🌍 Made for Players Everywhere</h3>
+    <p>Because the game runs through the web, players can access it from different regions and devices without needing to download a dedicated application.</p>
+    <p>Whether you are playing from India, the United States, China, Russia, or anywhere else with compatible web access, the goal is to provide the same simple and enjoyable browser-game experience.</p>
+
+    <hr>
+
+    <h3>❓ Frequently Asked Questions</h3>
+    <p><strong>Is Army Run 3D free?</strong><br>Yes. Army Run 3D is presented as a free online browser game.</p>
+    <p><strong>Do I need to install an app?</strong><br>No traditional app-store installation is required to play the browser version. Simply open the website in a compatible browser.</p>
+    <p><strong>Can I play it on mobile?</strong><br>Yes. The game is designed to support mobile-friendly interaction and responsive gameplay.</p>
+    <p><strong>Can I play it on a PC?</strong><br>Yes. Army Run 3D can also be played through a desktop or laptop browser.</p>
+    <p><strong>What is Army Rush ULTRA?</strong><br>Army Rush ULTRA is the name associated with the Army Run 3D browser game experience.</p>
+    <p><strong>What is the main goal of the game?</strong><br>The main goal is to build your army, move through the battlefield, collect power-ups, overcome obstacles and enemies, unlock upgrades, and progress through increasingly challenging situations.</p>
+    <p><strong>Does the game require a separate gaming app?</strong><br>No. The browser version is designed to let you start playing directly from the website.</p>
+    <p><strong>Will Army Run 3D receive future improvements?</strong><br>The project is developed with a long-term improvement approach, so future updates, refinements, technical improvements, and new features may be introduced as development continues.</p>
+
+    <hr>
+
+    <h3>👨‍💻 Developer &amp; Raxzen</h3>
+    <p>Army Run 3D is developed as part of the Raxzen ecosystem, with an emphasis on creating modern, useful, interactive, and visually polished web experiences.</p>
+    <p>The broader Raxzen development vision focuses on building projects that combine: clean design + modern technology + smooth interaction + useful features + continuous improvement.</p>
+    <p>Army Run 3D is one part of that larger development journey.</p>
+
+    <hr>
+
+    <h3>🌐 Developer Links</h3>
+    <p><strong>Developer Website:</strong><br><a href="https://rafid-mondal.raxzen.in/" target="_blank" rel="noopener">https://rafid-mondal.raxzen.in/</a></p>
+    <p><strong>Other Apps &amp; Services:</strong><br><a href="https://raxzenapp-p9ksao39.manus.space/" target="_blank" rel="noopener">https://raxzenapp-p9ksao39.manus.space/</a></p>
+    <p><strong>Army Run 3D:</strong><br><a href="https://army-run-3d-game.raxzen.in/" target="_blank" rel="noopener">https://army-run-3d-game.raxzen.in/</a></p>
+    <p><strong>Raxzen other game &mdash; Water Puzzle:</strong><br><a href="https://waterpuzzel.raxzen.in" target="_blank" rel="noopener">https://waterpuzzel.raxzen.in</a></p>
+
+    <hr>
+
+    <h3>📩 Developer &amp; Support</h3>
+    <p>For support, feedback, technical questions, development-related requirements, or other inquiries, you can contact the developer directly.</p>
+    <p><strong>Email:</strong> <a href="mailto:radidmondal@gmail.com">radidmondal@gmail.com</a></p>
+    <p>You can also visit the developer website for additional projects, applications, and services.</p>
+
+    <hr>
+
+    <h3>🎯 The Vision</h3>
+    <p>Army Run 3D is more than a simple browser game &mdash; it is part of an ongoing effort to create accessible, modern, interactive web experiences that can continue improving over time.</p>
+    <p>The focus is simple: Build → Improve → Update → Create Better Experiences.</p>
+    <p><strong>Army Run 3D</strong> &mdash; Build your squad, push forward, and see how far you can go.</p>
+  </div>
+</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+
+  (function () {
+    var toggleBtn = document.getElementById('armyrun-about-toggle');
+    var panel = document.getElementById('armyrun-about-panel');
+    var closeBtn = panel ? panel.querySelector('.armyrun-about-close') : null;
+
+    function openPanel() {
+      panel.classList.add('open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closePanel() {
+      panel.classList.remove('open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    if (toggleBtn && panel) {
+      toggleBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        panel.classList.contains('open') ? closePanel() : openPanel();
+      });
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closePanel();
+      });
+    }
+    if (panel) {
+      panel.addEventListener('click', function (e) {
+        if (e.target === panel) closePanel();
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
