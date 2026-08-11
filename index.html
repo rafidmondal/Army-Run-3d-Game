@@ -323,6 +323,7 @@
     var toggleBtn = document.getElementById('armyrun-about-toggle');
     var panel = document.getElementById('armyrun-about-panel');
     var closeBtn = panel ? panel.querySelector('.armyrun-about-close') : null;
+    var canvas = document.getElementById('c');
 
     function openPanel() {
       panel.classList.add('open');
@@ -331,6 +332,11 @@
     function closePanel() {
       panel.classList.remove('open');
       toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+    function hideAboutButton() {
+      if (!toggleBtn) return;
+      closePanel();
+      toggleBtn.style.display = 'none';
     }
 
     if (toggleBtn && panel) {
@@ -349,6 +355,19 @@
       panel.addEventListener('click', function (e) {
         if (e.target === panel) closePanel();
       });
+    }
+
+    /* Hide the info button as soon as gameplay starts (first tap on the
+       game canvas), so it never overlaps in-game controls/HUD. It shows
+       again automatically the next time the page loads (home screen). */
+    if (canvas) {
+      var hideOnFirstPlay = function () {
+        hideAboutButton();
+        canvas.removeEventListener('pointerdown', hideOnFirstPlay);
+        canvas.removeEventListener('touchstart', hideOnFirstPlay);
+      };
+      canvas.addEventListener('pointerdown', hideOnFirstPlay, { passive: true });
+      canvas.addEventListener('touchstart', hideOnFirstPlay, { passive: true });
     }
   })();
 </script>
