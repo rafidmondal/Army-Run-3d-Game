@@ -1,6 +1,7 @@
 # ==============================================================================
 # ULTIMATE MASTER ROBOTS.TXT (SEARCH ENGINES + AI + BOT AGENTS + SCRAPERS + TOOLS)
 # Website: https://battle-space-shooter.raxzen.in/
+# Sitemap: https://army-run-3d-game.raxzen.in/sitemap.xml
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
@@ -19,7 +20,6 @@ Disallow: /*.json$
 # ------------------------------------------------------------------------------
 # 2. GLOBAL SEARCH ENGINES (OLD + NEW + VIRAL)
 # ------------------------------------------------------------------------------
-# Google
 User-agent: Googlebot
 User-agent: Googlebot-Image
 User-agent: Googlebot-News
@@ -28,14 +28,10 @@ User-agent: Googlebot-Mobile
 User-agent: Mediapartners-Google
 User-agent: AdsBot-Google
 User-agent: FeedFetcher-Google
-
-# Bing & Microsoft
 User-agent: Bingbot
 User-agent: BingPreview
 User-agent: MSNBot
 User-agent: msnbot-media
-
-# Yahoo, DuckDuckGo & Yandex
 User-agent: Slurp
 User-agent: DuckDuckBot
 User-agent: DuckDuckGo-Favicons-Bot
@@ -44,8 +40,6 @@ User-agent: YandexImages
 User-agent: YandexAccessibilityBot
 User-agent: YandexMobileBot
 User-agent: YandexRenderResourcesBot
-
-# Baidu, Naver, Sogou, Seznam (Asian & European Engines)
 User-agent: Baiduspider
 User-agent: Baiduspider-render
 User-agent: Baiduspider-image
@@ -56,45 +50,29 @@ User-agent: SeznamBot
 User-agent: Daum
 User-agent: Qwantify
 User-agent: CocCocBot
+Allow: /
 
 # ------------------------------------------------------------------------------
 # 3. GENERATIVE AI, LLMS & AI SEARCH ENGINE AGENTS
 # ------------------------------------------------------------------------------
-# OpenAI (ChatGPT / GPT-4 / GPT-5 / Search)
 User-agent: GPTBot
 User-agent: ChatGPT-User
 User-agent: OAI-SearchBot
-
-# Google AI & Gemini
 User-agent: Google-Extended
 User-agent: Google-CloudVertexBot
 User-agent: Google-InspectionTool
-
-# Anthropic (Claude)
 User-agent: ClaudeBot
 User-agent: Claude-User
 User-agent: Claude-SearchBot
 User-agent: anthropic-ai
-
-# Perplexity AI
 User-agent: PerplexityBot
 User-agent: Perplexity-User
-
-# Meta AI
 User-agent: Meta-ExternalAgent
 User-agent: Meta-ExternalFetcher
-
-# Apple AI & Siri
 User-agent: Applebot
 User-agent: Applebot-Extended
-
-# Amazon AI & E-commerce Crawlers
 User-agent: Amazonbot
-
-# ByteDance (TikTok / Doubao / Lark)
 User-agent: Bytespider
-
-# Other Known & Emerging AI Agents (Manus, You.com, Cohere, etc.)
 User-agent: Manus
 User-agent: ManusAgent
 User-agent: YouBot
@@ -111,6 +89,7 @@ User-agent: IA-Archiver
 User-agent: Alexabot
 User-agent: Turnitin
 User-agent: TurnitinBot
+Allow: /
 
 # ------------------------------------------------------------------------------
 # 4. SOCIAL MEDIA PLATFORMS (FOR LINK PREVIEW & SHARING)
@@ -126,9 +105,10 @@ User-agent: Pinterestbot
 User-agent: Snapchat
 User-agent: RedditBot
 User-agent: SkypeUriPreview
+Allow: /
 
 # ------------------------------------------------------------------------------
-# 5. SEO AUDIT & BACKLINK ANALYZERS (ALLOW ALL SITE ANALYSIS)
+# 5. SEO AUDIT & BACKLINK ANALYZERS
 # ------------------------------------------------------------------------------
 User-agent: AhrefsBot
 User-agent: SemrushBot
@@ -148,5 +128,4 @@ Allow: /
 # ------------------------------------------------------------------------------
 # 6. XML SITEMAP DECLARATION
 # ------------------------------------------------------------------------------
-
 Sitemap: https://army-run-3d-game.raxzen.in/sitemap.xml
